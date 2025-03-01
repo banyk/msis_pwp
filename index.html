@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bayan Bokan - RPA Developer & Data Analyst</title>
+  <style>
+    /* Global Styles */
+    :root {
+      --text-color: #333;
+      --bg-color: #f5f5f5;
+      --accent-color: #d4d4d4;
+      --light-gray: #eaeaea;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    header {
+      padding: 30px 0;
+      background-color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin: 0 20px;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #888;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0;
+      background-color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.15;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 400;
+      margin-bottom: 15px;
+      color: var(--text-color);
+    }
+
+    .hero p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: right;
+    }
+
+    .profile-img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 0;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .social-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 80px 0;
+      background-color: white;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: var(--accent-color);
+      bottom: -5px;
+      left: 0;
+    }
+
+    /* About Section */
+    .about-content p {
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    /* Experience Section */
+    .job {
+      margin-bottom: 40px;
+    }
+
+    .job-header {
+      margin-bottom: 15px;
+    }
+
+    .job-title {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .job-company {
+      font-weight: 400;
+      color: #555;
+    }
+
+    .job-duration {
+      font-size: 14px;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    .job-description ul {
+      list-style: none;
+      margin-top: 15px;
+    }
+
+    .job-description li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    .job-description li:before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: #999;
+    }
+
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .skills-category h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .skills-list {
+      list-style: none;
+    }
+
+    .skills-list li {
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    /* Education Section */
+    .education-item {
+      margin-bottom: 40px;
+    }
+
+    .education-title {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .education-institution {
+      font-weight: 400;
+      color: #555;
+    }
+
+    .education-date {
+      font-size: 14px;
+      color: #777;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
+    /* Contact Section */
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      min-width: 250px;
+    }
+
+    .contact-item h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .contact-item a {
+      color: #555;
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+
+      .hero-image {
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        text-align: center;
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">BIO</a></li>
+          <li><a href="#experience">EXPERIENCE</a></li>
+          <li><a href="#skills">SKILLS</a></li>
+          <li><a href="#education">EDUCATION</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline class="video-background">
+      <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Bayan Bokan</h1>
+          <p>A dedicated RPA Developer & Data Analyst focused on business process automation and digital transformation
+          </p>
+          <div class="social-icons">
+            <a href="https://linkedin.com/in/bayanbokan" target="_blank">
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  fill="#333" />
+              </svg>
+            </a>
+            <a href="mailto:beckbokanov@gmail.com">
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"
+                  fill="#333" />
+              </svg>
+            </a>
+            <a href="tel:+14257899090">
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z"
+                  fill="#333" />
+              </svg>
+            </a>
+          </div>
+          <a href="portfolio.html" class="btn" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background-color: #333; color: white; text-decoration: none; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease;">View My Projects</a>
+        </div>
+        <div class="hero-image">
+          <img src="image.jpeg" alt="Bayan Bokan" class="profile-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="about-content">
+        <p>As a Master of Science in Information Systems candidate at UW Foster School of Business, I'm passionate about
+          creating elegant technology solutions that transform how businesses operate. My journey in tech began with
+          Robotic Process Automation, where I've spent over two years developing innovative solutions at Deloitte and
+          other forward-thinking companies.</p>
+        <p>I find joy in simplifying complex processes and creating meaningful change through automation. My work has
+          helped teams reclaim thousands of hours for more creative and strategic work. With expertise spanning
+          automation, web development, and technology advisory, I thrive in collaborative environments where I can
+          partner with diverse teams to reimagine workflows and drive digital innovation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="experience" id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+
+      <div class="job">
+        <div class="job-header">
+          <h3 class="job-title">Data Research Analyst</h3>
+          <p class="job-company">Buerk Center for Entrepreneurship, UW</p>
+          <p class="job-duration">June 2024 - Present • Seattle, WA</p>
+        </div>
+        <div class="job-description">
+          <ul>
+            <li>Designed and built an ETL pipeline in Python, reducing manual data collection time by 80%</li>
+            <li>Manipulating and preparing data for migration to Salesforce Education Data Architecture (EDA)</li>
+            <li>Processing, cleaning, and updating datasets to ensure data integrity</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <h3 class="job-title">Robotics Process Automation (RPA) Developer</h3>
+          <p class="job-company">Deloitte, Caspian region</p>
+          <p class="job-duration">Sep 2022 - Oct 2023 • Almaty, Kazakhstan</p>
+        </div>
+        <div class="job-description">
+          <ul>
+            <li>Collaborated with internal teams to identify, evaluate and implement automatization</li>
+            <li>Designed and deployed 16 bots, leading to $80K in cost savings, providing testing and code documentation
+            </li>
+            <li>Received "Employee of month" badge by automatizing internal process for HR & Talent team</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <h3 class="job-title">RPA Developer</h3>
+          <p class="job-company">PRO100 ROBOT</p>
+          <p class="job-duration">Nov 2021 - June 2022 • Busan, South Korea</p>
+        </div>
+        <div class="job-description">
+          <ul>
+            <li>Developed a bot using OCR technologies for a major logistics company that saved more than 40K
+              person-hours</li>
+            <li>Created a 24/7 monitoring system for new orders by developing a bot for the 1C Russian ERP solution</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <h3 class="job-title">RPA Developer</h3>
+          <p class="job-company">SmartLab</p>
+          <p class="job-duration">Apr 2021 - Nov 2021 • Almaty, Kazakhstan</p>
+        </div>
+        <div class="job-description">
+          <ul>
+            <li>Led process automation initiatives for KazPost by analyzing and optimizing four key business processes
+            </li>
+            <li>Implemented automation strategies for Toyota, Marrone Rosso, and KCell using JavaScript</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-container">
+        <div class="skills-category">
+          <h3>Technical</h3>
+          <ul class="skills-list">
+            <li>HTML, CSS, JavaScript</li>
+            <li>SQL, NoSQL</li>
+            <li>Git, JSON</li>
+            <li>Python</li>
+            <li>API Development</li>
+            <li>Robotic Process Automation</li>
+          </ul>
+        </div>
+        <div class="skills-category">
+          <h3>Tools</h3>
+          <ul class="skills-list">
+            <li>UiPath</li>
+            <li>VS Code</li>
+            <li>MySQL, PostgreSQL</li>
+            <li>Snowflake</li>
+            <li>ETL Pipelines</li>
+          </ul>
+        </div>
+        <div class="skills-category">
+          <h3>Business</h3>
+          <ul class="skills-list">
+            <li>Process Optimization</li>
+            <li>Digital Transformation</li>
+            <li>Business Analysis</li>
+            <li>Project Management</li>
+            <li>Cross-functional Collaboration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="education" id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="education-item">
+        <h3 class="education-title">Master of Science in Information Systems</h3>
+        <p class="education-institution">University of Washington - Foster School of Business</p>
+        <p class="education-date">2024 - 2025 • Seattle, WA</p>
+        <p>The MSIS program provides advanced knowledge in data analytics, business intelligence, enterprise systems,
+          technology management, and digital transformation strategies.</p>
+      </div>
+      <div class="education-item">
+        <h3 class="education-title">Bachelor's Degree in International Relations</h3>
+        <p class="education-institution">Kazakh University of International Relations and World Languages</p>
+        <p class="education-date">2016 - 2020 • Almaty, Kazakhstan</p>
+        <p>Developed critical thinking, communication, and analytical skills through international studies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p>Feel free to reach out for opportunities, questions, or collaboration ideas.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <h3>Email</h3>
+          <p><a href="mailto:beckbokanov@gmail.com">beckbokanov@gmail.com</a></p>
+        </div>
+        <div class="contact-item">
+          <h3>Phone</h3>
+          <p><a href="tel:+14257899090">+1 (425) 789-9090</a></p>
+        </div>
+        <div class="contact-item">
+          <h3>LinkedIn</h3>
+          <p><a href="https://linkedin.com/in/bayanbokan" target="_blank">linkedin.com/in/bayanbokan</a></p>
+        </div>
+        <div class="contact-item">
+          <h3>Location</h3>
+          <p>Seattle, WA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Bayan Bokan. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
